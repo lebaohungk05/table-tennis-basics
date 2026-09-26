@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table Tennis Central | Accessible Photo Gallery</title>
+  <meta name="description" content="An accessible interactive photo gallery driven by mouse hover and keyboard focus.">
+  <link rel="stylesheet" href="gallery.css">
+</head>
+<body onload="prepareFigures()">
+
+  <a class="skip-link" href="#main-content">Skip to Main Content</a>
+
+  <header class="page-header">
+    <h1>Accessible Photo Gallery</h1>
+    <p>Hover with a mouse or press Tab to preview each stroke</p>
+  </header>
+
+  <main id="main-content">
+
+    <h2>Preview</h2>
+    <div id="image" aria-live="polite">Hover over or tab to an image below to display it here.</div>
+
+    <h2>Six Strokes</h2>
+    <div id="thumbnails">
+
+      <figure onmouseover="upDate(this)" onmouseout="undo()"
+              onfocus="upDate(this)" onblur="undo()">
+        <img class="preview" src="images/serve.svg"
+             alt="The serve: a ball tossed straight up above the table">
+        <figcaption>The Serve</figcaption>
+      </figure>
+
+      <figure onmouseover="upDate(this)" onmouseout="undo()"
+              onfocus="upDate(this)" onblur="undo()">
+        <img class="preview" src="images/forehand.svg"
+             alt="The forehand drive: a player swinging forward across the body">
+        <figcaption>Forehand Drive</figcaption>
+      </figure>
+
+      <figure onmouseover="upDate(this)" onmouseout="undo()"
+              onfocus="upDate(this)" onblur="undo()">
+        <img class="preview" src="images/backhand.svg"
+             alt="The backhand block: a short punch taken close to the table">
+        <figcaption>Backhand Block</figcaption>
+      </figure>
+
+      <figure onmouseover="upDate(this)" onmouseout="undo()"
+              onfocus="upDate(this)" onblur="undo()">
+        <img class="preview" src="images/smash.svg"
+             alt="The smash: a paddle driving the ball steeply down into the far court">
+        <figcaption>The Smash</figcaption>
+      </figure>
+
+      <figure onmouseover="upDate(this)" onmouseout="undo()"
+              onfocus="upDate(this)" onblur="undo()">
+        <img class="preview" src="images/chop.svg"
+             alt="The backspin chop: a defensive arc that drags the ball back on landing">
+        <figcaption>Backspin Chop</figcaption>
+      </figure>
+
+      <figure onmouseover="upDate(this)" onmouseout="undo()"
+              onfocus="upDate(this)" onblur="undo()">
+        <img class="preview" src="images/doubles.svg"
+             alt="Doubles rotation: partners taking alternate shots on each side of the table">
+        <figcaption>Doubles Rotation</figcaption>
+      </figure>
+
+    </div>
+
+  </main>
+
+  <footer class="page-footer">
+    <p>&copy; 2026 Table Tennis Central &middot; Accessible gallery project by Le Bao Hung.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table Tennis Central | Interactive Photo Gallery</title>
+  <meta name="description" content="An interactive photo gallery: hover over a stroke to preview it full size.">
+  <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+
+  <header class="page-header">
+    <h1>Interactive Photo Gallery</h1>
+    <p>Hover over any stroke below to preview it full size</p>
+  </header>
+
+  <main>
+
+    <div id="image">Hover over an image below to display here.</div>
+
+    <div class="thumbnails">
+      <img class="preview" src="images/serve.svg" alt="The Serve"
+           onmouseover="upDate(this)" onmouseout="undo()">
+      <img class="preview" src="images/forehand.svg" alt="Forehand Drive"
+           onmouseover="upDate(this)" onmouseout="undo()">
+      <img class="preview" src="images/backhand.svg" alt="Backhand Block"
+           onmouseover="upDate(this)" onmouseout="undo()">
+      <img class="preview" src="images/smash.svg" alt="The Smash"
+           onmouseover="upDate(this)" onmouseout="undo()">
+      <img class="preview" src="images/chop.svg" alt="Backspin Chop"
+           onmouseover="upDate(this)" onmouseout="undo()">
+      <img class="preview" src="images/doubles.svg" alt="Doubles Rotation"
+           onmouseover="upDate(this)" onmouseout="undo()">
+    </div>
+
+  </main>
+
+  <footer class="page-footer">
+    <p>&copy; 2026 Table Tennis Central &middot; JavaScript gallery project by Le Bao Hung.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

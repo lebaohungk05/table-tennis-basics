@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table Tennis Central | Capstone Project Report</title>
+  <meta name="description" content="Written walkthrough of the Table Tennis Central capstone site: validation, responsiveness, styling and four extras.">
+  <link rel="stylesheet" href="report.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to Main Content</a>
+
+  <header class="page-header">
+    <p class="eyebrow">Web Design for Everybody &middot; Capstone</p>
+    <h1>Table Tennis Central</h1>
+    <p class="byline">Project report by Le Bao Hung</p>
+  </header>
+
+  <nav class="toc" aria-label="Report sections">
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#validation">Validation</a></li>
+      <li><a href="#responsive">Responsive</a></li>
+      <li><a href="#styling">Styling</a></li>
+      <li><a href="#extras">Four Extras</a></li>
+    </ul>
+  </nav>
+
+  <main id="main-content">
+
+    <section id="overview">
+      <h2>1. Overview</h2>
+      <p>Table Tennis Central is a three page informational site about table tennis. It explains why the sport is
+        worth playing, what equipment a beginner needs, and how a match is scored. Every illustration on the site is
+        an original SVG drawn for this project.</p>
+
+      <div class="link-box">
+        <p><strong>Live site:</strong>
+          <a href="https://lebaohungk05.github.io/table-tennis-basics/final-project/">https://lebaohungk05.github.io/table-tennis-basics/final-project/</a></p>
+        <p><strong>Source code:</strong>
+          <a href="https://github.com/lebaohungk05/table-tennis-basics/tree/master/final-project">github.com/lebaohungk05/table-tennis-basics/final-project</a></p>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <caption>Pages on the site</caption>
+          <thead>
+            <tr>
+              <th scope="col">Page</th>
+              <th scope="col">Content</th>
+              <th scope="col">Images</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="https://lebaohungk05.github.io/table-tennis-basics/final-project/index.html">Overview</a></td>
+              <td>Hero banner, key facts, five-image photo gallery, three &ldquo;Why Play?&rdquo; cards</td>
+              <td>7</td>
+            </tr>
+            <tr>
+              <td><a href="https://lebaohungk05.github.io/table-tennis-basics/final-project/equipment.html">Equipment</a></td>
+              <td>Five-item kit gallery, three paddle-type cards, ITTF specification table</td>
+              <td>9</td>
+            </tr>
+            <tr>
+              <td><a href="https://lebaohungk05.github.io/table-tennis-basics/final-project/rules.html">Rules</a></td>
+              <td>Serve, scoring and expedite sections with diagrams, rally-call table, common faults</td>
+              <td>4</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="validation">
+      <h2>2. W3C Validator Compliance</h2>
+      <p>Each page was checked by address on the <a href="https://validator.w3.org/nu/">W3C Nu Html Checker</a>, and
+        the stylesheet on the <a href="https://jigsaw.w3.org/css-validator/">W3C CSS Validation Service</a>. All four
+        report zero errors and zero warnings. The screenshots below are the validators' own result pages for the
+        live URLs.</p>
+
+      <div class="shot-grid">
+        <figure>
+          <img src="images/w3c-index.png" alt="W3C Nu Html Checker result for index.html: Document checking completed. No errors or warnings to show.">
+          <figcaption>index.html &mdash; no errors or warnings</figcaption>
+        </figure>
+        <figure>
+          <img src="images/w3c-equipment.png" alt="W3C Nu Html Checker result for equipment.html: Document checking completed. No errors or warnings to show.">
+          <figcaption>equipment.html &mdash; no errors or warnings</figcaption>
+        </figure>
+        <figure>
+          <img src="images/w3c-rules.png" alt="W3C Nu Html Checker result for rules.html: Document checking completed. No errors or warnings to show.">
+          <figcaption>rules.html &mdash; no errors or warnings</figcaption>
+        </figure>
+        <figure>
+          <img src="images/w3c-css.png" alt="W3C CSS Validation Service result for style.css: Congratulations! No Error Found.">
+          <figcaption>style.css &mdash; &ldquo;Congratulations! No Error Found.&rdquo;</figcaption>
+        </figure>
+      </div>
+
+      <p>As an extra accessibility check, all three pages were also run through the axe-core 4.10.2 engine (the
+        engine behind the aXe browser extension), which reported <strong>0 violations</strong> on every page.</p>
+    </section>
+
+    <section id="responsive">
+      <h2>3. Responsive Design</h2>
+      <p>The layout is mobile-first. On narrow screens the text sections stack in one column and the gallery shows two
+        cards per row. A single media query at 720px widens the gallery to three columns and puts the text and the
+        fact list side by side. The navigation uses <code>flex-wrap</code>, so its links reflow by themselves on small
+        screens. None of the three widths below produce horizontal scrolling.</p>
+
+      <div class="device-row">
+        <figure class="device phone">
+          <img src="images/top-mobile.png" alt="Overview page at 375 pixels wide: header, wrapped navigation and hero image stacked in one column">
+          <figcaption>Mobile &middot; 375px</figcaption>
+        </figure>
+        <figure class="device tablet">
+          <img src="images/top-tablet.png" alt="Overview page at 768 pixels wide: navigation on one row and hero image full width">
+          <figcaption>Tablet &middot; 768px</figcaption>
+        </figure>
+        <figure class="device desktop">
+          <img src="images/top-desktop.png" alt="Overview page at 1280 pixels wide: logo left, navigation right, hero centred">
+          <figcaption>Desktop &middot; 1280px</figcaption>
+        </figure>
+      </div>
+
+      <h3>Photo gallery at each width</h3>
+      <div class="shot-grid three">
+        <figure>
+          <img src="images/gallery-mobile.png" alt="Gallery at 375 pixels wide arranged in two columns">
+          <figcaption>375px: 2 columns</figcaption>
+        </figure>
+        <figure>
+          <img src="images/gallery-tablet.png" alt="Gallery at 768 pixels wide arranged in three columns">
+          <figcaption>768px: 3 columns</figcaption>
+        </figure>
+        <figure>
+          <img src="images/gallery-desktop.png" alt="Gallery at 1280 pixels wide arranged in three columns">
+          <figcaption>1280px: 3 columns</figcaption>
+        </figure>
+      </div>
+
+      <pre><code>img {
+  max-width: 100%;
+  height: auto;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media screen and (min-width: 720px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .split {
+    grid-template-columns: 2fr 1fr;
+  }
+}</code></pre>
+    </section>
+
+    <section id="styling">
+      <h2>4. Styling</h2>
+      <p>All three pages share one external stylesheet, linked from each page with
+        <code>&lt;link rel="stylesheet" href="style.css"&gt;</code>. The design uses a fixed five-colour palette taken
+        from a table tennis venue: court green, table blue, paddle red, ball yellow and a warm off-white background.</p>
+
+      <ul class="swatches">
+        <li><span class="chip" style="background:#0b3d2e"></span>#0b3d2e court green</li>
+        <li><span class="chip" style="background:#12527f"></span>#12527f table blue</li>
+        <li><span class="chip" style="background:#c8102e"></span>#c8102e paddle red</li>
+        <li><span class="chip" style="background:#f6c453"></span>#f6c453 ball yellow</li>
+        <li><span class="chip chip-light" style="background:#f4f1e8"></span>#f4f1e8 background</li>
+      </ul>
+
+      <div class="table-wrap">
+        <table>
+          <caption>Colour contrast of the text pairs used (WCAG AA needs 4.5:1 for body text)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Text / background</th>
+              <th scope="col">Where</th>
+              <th scope="col">Ratio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>#f4f1e8 on #0b3d2e</td><td>Header, nav, footer</td><td>10.8 : 1</td></tr>
+            <tr><td>#0b3d2e on #f6c453</td><td>Nav hover, skip link</td><td>7.6 : 1</td></tr>
+            <tr><td>#12527f on #f4f1e8</td><td>Body links</td><td>7.2 : 1</td></tr>
+            <tr><td>#c8102e on #f4f1e8</td><td>Link hover</td><td>5.2 : 1</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Typography and the box model</h3>
+      <p>Headings use Georgia for a classic sports-programme feel, and body text uses Segoe UI at 18px with a 1.7
+        line height so paragraphs stay easy to read. Every content image is framed with the box model: padding gives
+        it a white mat, a border outlines it, and border-radius rounds the corners.</p>
+
+      <pre><code>.hero img,
+figure img,
+.card img,
+.split &gt; img {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  background-color: #ffffff;
+  border: 4px solid #0b3d2e;
+  border-radius: 14px;
+}</code></pre>
+    </section>
+
+    <section id="extras">
+      <h2>5. Four Extras</h2>
+      <p>Beyond the base requirements, the site adds these four features.</p>
+
+      <article class="extra">
+        <h3><span class="num">1</span> Skip to Main Content link</h3>
+        <p>The first element in every page is a link that jumps keyboard and screen-reader users straight past the
+          header and navigation. It is moved off screen with <code>position: absolute</code> and slides into view only
+          when it receives keyboard focus. The screenshot was taken right after pressing <kbd>Tab</kbd> once.</p>
+        <figure>
+          <img src="images/extra-skip-link.png" alt="The yellow Skip to Main Content link visible at the top left of the page after pressing Tab">
+          <figcaption>Visible only on focus</figcaption>
+        </figure>
+        <pre><code>.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  transition: top 0.25s ease-in-out;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #c8102e;
+}</code></pre>
+      </article>
+
+      <article class="extra">
+        <h3><span class="num">2</span> Hover and focus animations with CSS transitions</h3>
+        <p>Interactive elements respond with short transitions instead of instant jumps. Navigation links lift and
+          change to yellow, gallery cards rise and gain a shadow, and the &ldquo;Why Play?&rdquo; cards tilt slightly.
+          The navigation effect is attached to <code>:focus</code> as well as <code>:hover</code>, so keyboard users
+          see it too.</p>
+        <div class="shot-grid">
+          <figure>
+            <img src="images/extra-nav-hover.png" alt="Navigation bar with the Equipment link raised and highlighted yellow on hover">
+            <figcaption>Navigation link on hover</figcaption>
+          </figure>
+          <figure>
+            <img src="images/extra-card-hover.png" alt="Photo gallery with the second card lifted and casting a shadow on hover">
+            <figcaption>Gallery card on hover</figcaption>
+          </figure>
+        </div>
+        <pre><code>.main-nav a {
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.main-nav a:hover,
+.main-nav a:focus {
+  background-color: #f6c453;
+  color: #0b3d2e;
+  transform: translateY(-4px);
+}
+
+.gallery figure:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 22px rgba(11, 61, 46, 0.35);
+}</code></pre>
+      </article>
+
+      <article class="extra">
+        <h3><span class="num">3</span> CSS Grid and Flexbox layout</h3>
+        <p>Grid handles the two-dimensional layouts: the photo galleries and the text-plus-facts split. Flexbox
+          handles the one-dimensional rows: the navigation bar and the card rows. Both use <code>gap</code> for
+          spacing, so the layout needs no float hacks or margin tricks.</p>
+        <pre><code>.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.card-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.card {
+  flex: 1 1 280px;
+}</code></pre>
+      </article>
+
+      <article class="extra">
+        <h3><span class="num">4</span> Advanced <code>nth-child</code> selectors</h3>
+        <p>Instead of adding a class to every element, <code>nth-child</code> patterns give repeated items
+          alternating styles. Gallery images alternate between arch and bowl shapes in red and blue. Cards rotate
+          through three accent colours with <code>3n + 1</code>, <code>3n + 2</code> and <code>3n + 3</code>. Fact
+          lists and table rows get zebra striping.</p>
+        <figure>
+          <img src="images/extra-cards-nth.png" alt="Three paddle cards whose top borders are red, blue and yellow, set by nth-child">
+          <figcaption>Card accents set by <code>:nth-child(3n + k)</code></figcaption>
+        </figure>
+        <pre><code>.gallery figure:nth-child(odd) img {
+  border-radius: 50% 50% 14px 14px;
+  border-color: #c8102e;
+}
+
+.gallery figure:nth-child(even) img {
+  border-radius: 14px 14px 50% 50%;
+  border-color: #12527f;
+}
+
+.card:nth-child(3n + 1) { border-top: 10px solid #c8102e; }
+.card:nth-child(3n + 2) { border-top: 10px solid #12527f; }
+.card:nth-child(3n + 3) { border-top: 10px solid #f6c453; }
+
+.score-table tbody tr:nth-child(even) {
+  background-color: #efeadc;
+}</code></pre>
+      </article>
+    </section>
+
+  </main>
+
+  <footer class="page-footer">
+    <p>Table Tennis Central &middot; Capstone report by Le Bao Hung &middot;
+      <a href="https://lebaohungk05.github.io/table-tennis-basics/final-project/">Visit the site</a></p>
+  </footer>
+
+</body>
+</html>

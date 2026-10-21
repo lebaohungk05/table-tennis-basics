@@ -244,7 +244,7 @@ button:focus-visible,
   color: var(--tt-yellow);
 }
 
-.back-to-top {
+.footer .back-to-top {
   position: fixed;
   right: 20px;
   bottom: 20px;

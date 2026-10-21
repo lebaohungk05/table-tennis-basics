@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table Tennis Central Club | Template Capstone Report</title>
+  <meta name="description" content="How the Start Bootstrap Grayscale template was adapted into an accessible, validated table tennis club site.">
+  <link rel="stylesheet" href="report.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to Main Content</a>
+
+  <header class="page-header">
+    <p class="eyebrow">Web Design for Everybody &middot; Capstone (template track)</p>
+    <h1>Table Tennis Central Club</h1>
+    <p class="byline">Project report by Le Bao Hung</p>
+  </header>
+
+  <nav class="toc" aria-label="Report sections">
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#changes">Changes</a></li>
+      <li><a href="#accessibility">Accessibility</a></li>
+      <li><a href="#validation">Validation</a></li>
+      <li><a href="#responsive">Responsive</a></li>
+      <li><a href="#styling">Styling</a></li>
+      <li><a href="#extras">Four Extras</a></li>
+    </ul>
+  </nav>
+
+  <main id="main-content">
+
+    <section id="overview">
+      <h2>1. Overview</h2>
+      <p>Table Tennis Central Club is a one-page website for a community table tennis club. It introduces the club,
+        describes three programs (League Nights, Beginner Clinics and the Junior Academy), lets visitors request a free
+        trial session, and lists contact details and opening hours.</p>
+      <p>The site is built on <strong>Grayscale 7.0.6</strong>, a free Bootstrap 5 theme by Start Bootstrap released
+        under the MIT License. I kept the template's Bootstrap grid, navigation behaviour and section layout, and
+        replaced or reworked everything else: content, artwork, colour theme, the sign-up form, and every accessibility
+        and validation problem the original shipped with.</p>
+
+      <div class="link-box">
+        <p><strong>Live site:</strong>
+          <a href="https://lebaohungk05.github.io/table-tennis-basics/template-site/">https://lebaohungk05.github.io/table-tennis-basics/template-site/</a></p>
+        <p><strong>Original template, unmodified (for comparison):</strong>
+          <a href="https://lebaohungk05.github.io/table-tennis-basics/template-original/">https://lebaohungk05.github.io/table-tennis-basics/template-original/</a></p>
+        <p><strong>Source code:</strong>
+          <a href="https://github.com/lebaohungk05/table-tennis-basics/tree/master/template-site">github.com/lebaohungk05/table-tennis-basics/template-site</a></p>
+        <p><strong>Template:</strong>
+          <a href="https://startbootstrap.com/theme/grayscale">Start Bootstrap Grayscale</a> (MIT License, kept in the project as <code>LICENSE</code>)</p>
+      </div>
+
+      <div class="compare">
+        <figure>
+          <span class="tag tag-before">Original template</span>
+          <img src="images/before-desktop.png" alt="Original Grayscale template: grey photo of misty mountains with the word GRAYSCALE fading to transparent">
+          <figcaption>Grayscale as downloaded</figcaption>
+        </figure>
+        <figure>
+          <span class="tag tag-after">My site</span>
+          <img src="images/after-desktop.png" alt="Table Tennis Central Club: dark green header with a table tennis table illustration, white title and red Get Started button">
+          <figcaption>Table Tennis Central Club</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="changes">
+      <h2>2. Changes From the Original Template</h2>
+
+      <div class="table-wrap">
+        <table>
+          <caption>What I changed, file by file</caption>
+          <thead>
+            <tr>
+              <th scope="col">Area</th>
+              <th scope="col">Original template</th>
+              <th scope="col">My version</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Content</td>
+              <td>Placeholder text (&ldquo;Shoreline&rdquo;, &ldquo;Misty&rdquo;, &ldquo;Your Website&rdquo;) and an empty meta description</td>
+              <td>All copy rewritten for the club, real meta description and author, sections renamed to About, Programs, Free Trial and Contact</td>
+            </tr>
+            <tr>
+              <td>Images</td>
+              <td>Four stock photos and an iPad mock-up, every one with <code>alt="..."</code></td>
+              <td>Six original SVG illustrations (masthead, club hall, three programs, logo/favicon), each with descriptive alt text</td>
+            </tr>
+            <tr>
+              <td>Colour theme</td>
+              <td>Teal <code>#64a19d</code> on grey and black</td>
+              <td>New palette in a separate <code>css/custom.css</code> built on CSS custom properties: court green, table blue, paddle red, ball yellow</td>
+            </tr>
+            <tr>
+              <td>Masthead title</td>
+              <td>Gradient text that fades to fully transparent at the bottom of each letter</td>
+              <td>Solid white text with a soft shadow, sized with <code>clamp()</code> so the longer title fits every screen</td>
+            </tr>
+            <tr>
+              <td>Sign-up form</td>
+              <td>Depends on the paid SB Forms service; without an API token the button stays disabled and nothing works</td>
+              <td>Removed SB Forms; wrote <code>js/signup.js</code> with my own validation and spoken feedback (see Extra 1)</td>
+            </tr>
+            <tr>
+              <td>Contact cards</td>
+              <td>Fake address, a <code>#!</code> email link, a phone number</td>
+              <td>Club address, a working <code>mailto:</code> link, opening hours</td>
+            </tr>
+            <tr>
+              <td>Social links</td>
+              <td>Three icon-only links to <code>#!</code> (Twitter, Facebook, GitHub)</td>
+              <td>Two real links (project source and the club's guide to the sport), each with an <code>aria-label</code></td>
+            </tr>
+            <tr>
+              <td><code>css/styles.css</code></td>
+              <td>A LESS function <code>fade(#fff, 80%)</code> leaked into the compiled CSS, which is invalid</td>
+              <td>Replaced with <code>rgba(255, 255, 255, 0.8)</code>. This is the only edit to the template's own stylesheet; everything else lives in <code>custom.css</code></td>
+            </tr>
+            <tr>
+              <td>New features</td>
+              <td>&mdash;</td>
+              <td>Skip link, <code>&lt;main&gt;</code> landmark, back-to-top button, hover and focus transitions, reduced-motion support</td>
+            </tr>
+            <tr>
+              <td>Clean-up</td>
+              <td>Long SB Forms comment blocks, trailing slashes on void elements</td>
+              <td>Removed, which also clears the 17 &ldquo;Info&rdquo; messages from the W3C checker</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="accessibility">
+      <h2>3. Accessibility Issues and How I Fixed Them</h2>
+      <p>Before changing anything, I published the untouched template and ran it through WAVE, aXe and the W3C
+        validators so I would know exactly what was broken. The template looks polished but fails several basic
+        checks.</p>
+
+      <div class="table-wrap">
+        <table>
+          <caption>Original template compared with my site (same tools, both hosted on GitHub Pages)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Check</th>
+              <th scope="col">Original</th>
+              <th scope="col">My site</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>WAVE errors</td><td class="result-bad">3</td><td class="result-good">0</td></tr>
+            <tr><td>WAVE contrast errors</td><td class="result-bad">7</td><td class="result-good">0</td></tr>
+            <tr><td>WAVE alerts</td><td class="result-bad">9</td><td class="result-good">0</td></tr>
+            <tr><td>WAVE AIM score</td><td class="result-bad">6.5 / 10</td><td class="result-good">10 / 10</td></tr>
+            <tr><td>aXe violations (axe-core 4.10.2)</td><td class="result-bad">5 rules, 21 elements</td><td class="result-good">0</td></tr>
+            <tr><td>W3C HTML errors</td><td class="result-bad">2 (plus 17 info)</td><td class="result-good">0 (no messages at all)</td></tr>
+            <tr><td>W3C CSS errors</td><td class="result-bad">1</td><td class="result-good">0</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="compare">
+        <figure>
+          <span class="tag tag-before">Original</span>
+          <img src="images/wave-before.png" alt="WAVE summary for the original template: 3 errors, 7 contrast errors, 9 alerts, AIM score 6.5 out of 10">
+          <figcaption>WAVE on the original: 3 errors, 7 contrast errors, 9 alerts</figcaption>
+        </figure>
+        <figure>
+          <span class="tag tag-after">My site</span>
+          <img src="images/wave-after.png" alt="WAVE summary for my site: 0 errors, 0 contrast errors, 0 alerts, AIM score 10 out of 10">
+          <figcaption>WAVE on my site: &ldquo;No errors were detected&rdquo;</figcaption>
+        </figure>
+      </div>
+
+      <h3>Each issue and its fix</h3>
+      <div class="table-wrap">
+        <table>
+          <caption>Problems found in the template</caption>
+          <thead>
+            <tr>
+              <th scope="col">Issue</th>
+              <th scope="col">Found by</th>
+              <th scope="col">Fix</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Three social links contain only an icon, so screen readers announce &ldquo;link&rdquo; with no name</td>
+              <td>WAVE (Empty link), aXe (link-name)</td>
+              <td>Every icon link now has an <code>aria-label</code> that says where it goes</td>
+            </tr>
+            <tr>
+              <td>Headings jump from <code>h2</code> to <code>h4</code> in the Projects and Contact sections</td>
+              <td>W3C (2 errors), WAVE, aXe (heading-order)</td>
+              <td>Changed to <code>h3</code>, added an &ldquo;Our Programs&rdquo; <code>h2</code> and a visually hidden &ldquo;Contact&rdquo; <code>h2</code>, and turned the masthead tagline from a misused <code>h2</code> into a <code>&lt;p&gt;</code></td>
+            </tr>
+            <tr>
+              <td>Low contrast: white text on teal buttons (about 2.9:1) and 50% black or white text classes</td>
+              <td>WAVE (7), aXe (5)</td>
+              <td>New button colour <code>#c8102e</code> with white text (5.9:1); replaced <code>text-black-50</code> and <code>text-white-50</code> with my own <code>text-soft-dark</code> (<code>#3b3b3b</code>) and <code>text-soft-light</code> classes</td>
+            </tr>
+            <tr>
+              <td>No <code>&lt;main&gt;</code> landmark, so ten blocks of content sit outside any landmark</td>
+              <td>aXe (landmark-one-main, region)</td>
+              <td>Wrapped every content section in <code>&lt;main id="main-content"&gt;</code>, which is also the skip link's target</td>
+            </tr>
+            <tr>
+              <td>Images use <code>alt="..."</code>, which a screen reader reads as &ldquo;dot dot dot&rdquo;</td>
+              <td>WAVE (same alternative text alert)</td>
+              <td>Wrote a real description for every image</td>
+            </tr>
+            <tr>
+              <td>Email input has a placeholder but no visible label, and the button is permanently disabled</td>
+              <td>Manual testing</td>
+              <td>Added a visible <code>&lt;label&gt;</code>, enabled the button, and connected feedback with <code>aria-describedby</code></td>
+            </tr>
+            <tr>
+              <td>Same-page links that point to <code>#!</code> go nowhere</td>
+              <td>WAVE (broken same-page link)</td>
+              <td>Removed or replaced with real destinations</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Problems I ran into along the way</h3>
+      <div class="lesson">
+        <h4>My own CSS broke the mobile layout</h4>
+        <p>I gave the About image <code>max-width: 900px</code> to stop it growing too large on desktop. Because
+          <code>custom.css</code> loads after Bootstrap, this replaced Bootstrap's <code>.img-fluid { max-width: 100% }</code>,
+          and on a 390px phone the image became 812px wide and the whole page scrolled sideways. The fix was
+          <code>width: 100%; max-width: 900px;</code>. I then checked six widths from 360px to 1920px and none of them overflow.</p>
+      </div>
+      <div class="lesson">
+        <h4>WAVE still found one contrast error after my first pass</h4>
+        <p>The visually hidden &ldquo;Contact&rdquo; heading I added inherited Bootstrap's dark body colour
+          (<code>#212529</code>) inside the black contact section, so its contrast was 1.4:1. Nobody sees it, but a
+          screen reader user with a custom stylesheet could. I made it white. I also gave every gradient section a
+          solid <code>background-color</code> fallback, so text stays readable if the background image fails and
+          checkers can measure the real contrast.</p>
+      </div>
+      <div class="lesson">
+        <h4>A specificity clash turned an icon the wrong colour</h4>
+        <p>My <code>.footer a</code> rule (yellow links) was more specific than <code>.back-to-top</code>, so the
+          back-to-top arrow turned yellow on red. I raised the selector to <code>.footer .back-to-top</code> so the
+          arrow is white as intended.</p>
+      </div>
+    </section>
+
+    <section id="validation">
+      <h2>4. W3C Validator Compliance</h2>
+      <p>The final HTML passes the <a href="https://validator.w3.org/nu/">W3C Nu Html Checker</a> with no errors,
+        warnings or info messages. Both stylesheets pass the <a href="https://jigsaw.w3.org/css-validator/">W3C CSS
+        Validation Service</a> with no errors. All screenshots are the validators' own result pages for the live
+        URLs.</p>
+
+      <h3>HTML</h3>
+      <div class="compare">
+        <figure>
+          <span class="tag tag-before">Original</span>
+          <img src="images/w3c-html-before.png" alt="W3C Nu Html Checker on the original template: 2 errors, h4 follows h2 skipping a heading level, with 17 info messages hidden by the checker's filter">
+          <figcaption>2 heading-level errors (the 17 info messages are hidden with the checker's own filter)</figcaption>
+        </figure>
+        <figure>
+          <span class="tag tag-after">My site</span>
+          <img src="images/w3c-html-after.png" alt="W3C Nu Html Checker on my site: Document checking completed. No errors or warnings to show.">
+          <figcaption>&ldquo;No errors or warnings to show&rdquo;</figcaption>
+        </figure>
+      </div>
+
+      <h3>CSS</h3>
+      <div class="shot-grid three">
+        <figure>
+          <span class="tag tag-before">Original styles.css</span>
+          <img src="images/w3c-css-before.png" alt="W3C CSS Validator on the original styles.css: Sorry! We found the following errors (1)">
+          <figcaption>1 error: <code>fade(#fff, 80%)</code></figcaption>
+        </figure>
+        <figure>
+          <span class="tag tag-after">Fixed styles.css</span>
+          <img src="images/w3c-css-after.png" alt="W3C CSS Validator on the fixed styles.css: Congratulations! No Error Found.">
+          <figcaption>No error found</figcaption>
+        </figure>
+        <figure>
+          <span class="tag tag-after">My custom.css</span>
+          <img src="images/w3c-css-custom.png" alt="W3C CSS Validator on custom.css: Congratulations! No Error Found.">
+          <figcaption>No error found</figcaption>
+        </figure>
+      </div>
+      <p>The CSS validator still lists warnings, which the course says are not deducted. <code>styles.css</code> has
+        130, all inherited from Bootstrap's vendor prefixes. <code>custom.css</code> has 5: four are the validator noting
+        that it cannot statically check CSS variables, and one is the <code>-webkit-text-fill-color</code> reset I need
+        to cancel the template's transparent heading text.</p>
+    </section>
+
+    <section id="responsive">
+      <h2>5. Responsive Design</h2>
+      <p>The template's Bootstrap grid already handled the main column changes, and I kept it. On phones the menu
+        collapses behind a &ldquo;Menu&rdquo; button, each program becomes an image stacked above its text, and the
+        three contact cards stack. From 992px up the navigation spreads out and programs sit beside their images. My
+        additions had to respect that system. The title uses <code>clamp()</code> instead of fixed breakpoints, and
+        nothing in <code>custom.css</code> sets a fixed width without a <code>max-width</code> or <code>%</code>
+        fallback.</p>
+
+      <div class="device-row">
+        <figure class="device phone">
+          <img src="images/resp-mobile.png" alt="Site at 390 pixels wide: brand and Menu button at the top, title wrapped over three lines">
+          <figcaption>Phone &middot; 390px</figcaption>
+        </figure>
+        <figure class="device phone">
+          <img src="images/resp-mobile-menu.png" alt="Site at 390 pixels wide with the collapsed menu opened, showing About, Programs, Free Trial and Contact">
+          <figcaption>Phone menu open</figcaption>
+        </figure>
+        <figure class="device tablet">
+          <img src="images/resp-tablet.png" alt="Site at 768 pixels wide: title on two lines and Get Started button centred">
+          <figcaption>Tablet &middot; 768px</figcaption>
+        </figure>
+      </div>
+
+      <div class="compare">
+        <figure>
+          <img src="images/resp-mobile-programs.png" alt="Programs section at 390 pixels: each program image stacked above its description">
+          <figcaption>Programs on a phone: image above text</figcaption>
+        </figure>
+        <figure>
+          <img src="images/after-programs.png" alt="Programs section at 1280 pixels: images and descriptions side by side, alternating sides">
+          <figcaption>Programs on a desktop: side by side, alternating</figcaption>
+        </figure>
+      </div>
+
+      <pre><code>.masthead h1 {
+  max-width: 14ch;
+  font-size: clamp(2.2rem, 7vw, 5.5rem);
+  line-height: 1.1;
+  letter-spacing: 0.35rem;
+}
+
+.about-image {
+  width: 100%;
+  max-width: 900px;
+}</code></pre>
+    </section>
+
+    <section id="styling">
+      <h2>6. Styling</h2>
+      <p>Instead of editing Bootstrap's 11,000-line stylesheet, all my styling lives in a separate
+        <code>css/custom.css</code> that loads after it. A single block of CSS custom properties defines the palette,
+        and every rule reads from those variables. Bootstrap 5 also exposes its own button colours as variables, so I
+        re-themed the buttons by overriding those variables rather than rewriting the button rules.</p>
+
+      <ul class="swatches">
+        <li><span class="chip" style="background:#0b3d2e"></span>--tt-green #0b3d2e</li>
+        <li><span class="chip" style="background:#12527f"></span>--tt-blue #12527f</li>
+        <li><span class="chip" style="background:#c8102e"></span>--tt-red #c8102e</li>
+        <li><span class="chip" style="background:#f6c453"></span>--tt-yellow #f6c453</li>
+        <li><span class="chip chip-light" style="background:#f4f1e8"></span>--tt-cream #f4f1e8</li>
+      </ul>
+
+      <pre><code>:root {
+  --tt-green: #0b3d2e;
+  --tt-blue: #12527f;
+  --tt-red: #c8102e;
+  --tt-red-dark: #9e0c24;
+  --tt-yellow: #f6c453;
+  --tt-text-dark: #3b3b3b;
+  --tt-text-light: rgba(255, 255, 255, 0.85);
+  --tt-ease: 0.3s ease;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--tt-red);
+  --bs-btn-border-color: var(--tt-red);
+  --bs-btn-hover-bg: var(--tt-red-dark);
+  --bs-btn-active-bg: var(--tt-red-dark);
+}</code></pre>
+
+      <div class="compare">
+        <figure>
+          <span class="tag tag-before">Original</span>
+          <img src="images/before-programs.png" alt="Original Projects section: grey stock photos of a shoreline, misty trees and mountains">
+          <figcaption>Template &ldquo;Projects&rdquo;</figcaption>
+        </figure>
+        <figure>
+          <span class="tag tag-after">My site</span>
+          <img src="images/after-programs.png" alt="My Programs section: SVG illustrations with a red or blue accent strip under each image">
+          <figcaption>My &ldquo;Programs&rdquo;, with <code>:nth-of-type</code> accent strips</figcaption>
+        </figure>
+        <figure>
+          <span class="tag tag-before">Original</span>
+          <img src="images/before-contact.png" alt="Original contact section: teal accents and three icon-only social links">
+          <figcaption>Template contact, with icon-only links</figcaption>
+        </figure>
+        <figure>
+          <span class="tag tag-after">My site</span>
+          <img src="images/after-contact.png" alt="My contact section: red accents, opening hours card, two labelled social links">
+          <figcaption>My contact, with labelled links</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="extras">
+      <h2>7. Four Extras</h2>
+      <p>None of these four features exist in the original template. I designed and coded all of them.</p>
+
+      <article class="extra">
+        <h3><span class="num">1</span> Working, accessible sign-up form (JavaScript)</h3>
+        <p>The template's form needs a paid service and a token, so out of the box it does nothing. I removed that
+          dependency and wrote <code>js/signup.js</code>. The form checks for an empty or malformed email, marks the
+          field with <code>aria-invalid</code>, moves focus back to it, and writes the message into a
+          <code>role="status"</code> region so screen readers announce it. A valid address shows a confirmation and
+          clears the field.</p>
+        <div class="compare">
+          <figure>
+            <img src="images/extra-form-error.png" alt="Sign-up form showing the message: That email address does not look right. Try name@example.com.">
+            <figcaption>Invalid email: field outlined, message announced</figcaption>
+          </figure>
+          <figure>
+            <img src="images/extra-form-success.png" alt="Sign-up form showing a yellow confirmation that this week's open times are on their way">
+            <figcaption>Valid email: confirmation, field cleared</figcaption>
+          </figure>
+        </div>
+        <pre><code>function handleSignup(event) {
+  event.preventDefault();
+  const input = document.getElementById("emailAddress");
+  const status = document.getElementById("signupStatus");
+  const email = input.value.trim();
+
+  if (!EMAIL_PATTERN.test(email)) {
+    input.setAttribute("aria-invalid", "true");
+    showStatus(status, "That email address does not look right. Try name@example.com.", "is-error");
+    input.focus();
+    return;
+  }
+
+  input.removeAttribute("aria-invalid");
+  showStatus(status, "Thanks! This week's open times are on their way to " + email + ".", "is-success");
+  event.target.reset();
+}</code></pre>
+        <pre><code>&lt;label class="signup-label" for="emailAddress"&gt;Email address&lt;/label&gt;
+&lt;input class="form-control" id="emailAddress" type="email" autocomplete="email"
+       required aria-describedby="signupStatus"&gt;
+&lt;p class="signup-status" id="signupStatus" role="status" aria-live="polite"&gt;&lt;/p&gt;</code></pre>
+      </article>
+
+      <article class="extra">
+        <h3><span class="num">2</span> Skip to Main Content link and landmark structure</h3>
+        <p>The template has a fixed navigation bar that keyboard users must tab through on every visit. I added a skip
+          link that stays hidden off screen until it receives focus, and wrapped the page content in a
+          <code>&lt;main&gt;</code> landmark for it to jump to. That same landmark fixed aXe's two landmark
+          violations.</p>
+        <figure>
+          <img src="images/extra-skip-link.png" alt="The yellow Skip to Main Content link visible at the top left after pressing Tab">
+          <figcaption>After pressing <kbd>Tab</kbd> once</figcaption>
+        </figure>
+        <pre><code>.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 2000;
+  transition: top 0.25s ease-in-out;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid var(--tt-red);
+}</code></pre>
+      </article>
+
+      <article class="extra">
+        <h3><span class="num">3</span> Back-to-top button revealed on scroll (JavaScript)</h3>
+        <p>On a long one-page site, a button in the corner saves scrolling back up. It stays invisible while the
+          visitor is near the top, then fades and slides in after 600px of scrolling. When hidden it uses
+          <code>visibility: hidden</code>, so keyboard users never tab onto an invisible control. It sits inside the
+          footer landmark and has an <code>aria-label</code>.</p>
+        <figure>
+          <img src="images/extra-back-to-top.png" alt="A round red button with a white up arrow in the bottom right corner of the page">
+          <figcaption>Visible after scrolling down</figcaption>
+        </figure>
+        <pre><code>function toggleBackToTop() {
+  const button = document.getElementById("backToTop");
+  button.classList.toggle("is-visible", window.scrollY &gt; 600);
+}
+
+document.addEventListener("scroll", toggleBackToTop);</code></pre>
+        <pre><code>.footer .back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity var(--tt-ease), transform var(--tt-ease), visibility var(--tt-ease);
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}</code></pre>
+      </article>
+
+      <article class="extra">
+        <h3><span class="num">4</span> Motion design that respects reduced-motion settings</h3>
+        <p>Program cards lift and cast a shadow on hover, and they do the same on <code>:focus-within</code> so
+          keyboard users get the effect too. Buttons rise slightly and links change colour, all with transitions.
+          Some people get dizzy or nauseous from on-screen motion, so a <code>prefers-reduced-motion</code> media
+          query turns every transition and transform off for visitors who have asked their operating system for
+          less motion.</p>
+        <figure>
+          <img src="images/extra-card-hover.png" alt="The Beginner Clinics program card lifted with a soft green shadow on hover">
+          <figcaption>Program card on hover</figcaption>
+        </figure>
+        <pre><code>.program-card {
+  transition: transform var(--tt-ease), box-shadow var(--tt-ease);
+}
+
+.program-card:hover,
+.program-card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 30px rgba(11, 61, 46, 0.3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .program-card:hover,
+  .program-card:focus-within,
+  .btn-primary:hover {
+    transform: none;
+  }
+}</code></pre>
+      </article>
+    </section>
+
+  </main>
+
+  <footer class="page-footer">
+    <p>Table Tennis Central Club &middot; Capstone report by Le Bao Hung &middot;
+      <a href="https://lebaohungk05.github.io/table-tennis-basics/template-site/">Visit the site</a></p>
+  </footer>
+
+</body>
+</html>

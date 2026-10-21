@@ -10,6 +10,10 @@
   --tt-ease: 0.3s ease;
 }
 
+body {
+  background-color: #000000;
+}
+
 .skip-link {
   position: absolute;
   top: -100px;
@@ -93,6 +97,7 @@ button:focus-visible,
 
 .masthead {
   background: linear-gradient(to bottom, rgba(11, 61, 46, 0.35) 0%, rgba(0, 0, 0, 0.75) 75%, #000 100%), url("../assets/img/masthead.svg");
+  background-color: var(--tt-green);
   background-position: center;
   background-size: cover;
 }
@@ -124,6 +129,10 @@ button:focus-visible,
 
 .text-brand {
   color: var(--tt-red);
+}
+
+.about-section {
+  background-color: #000000;
 }
 
 .about-section a {
@@ -164,6 +173,7 @@ button:focus-visible,
 
 .signup-section {
   background: linear-gradient(to bottom, var(--tt-blue) 0%, var(--tt-green) 70%, #000 100%);
+  background-color: var(--tt-green);
 }
 
 .signup-label {

@@ -424,3 +424,14 @@ kbd {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+@media print {
+  .compare,
+  .shot-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .shot-grid.three {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
